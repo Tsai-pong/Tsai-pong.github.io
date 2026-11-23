@@ -4,12 +4,290 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>澄域工创 | 精工构物，智造新玩</title>
+    <style>
+        /* 全局基础样式与工业风配色变量 */
+        :root {
+            --bg-color: #f4f5f7;
+            --card-bg: #ffffff;
+            --text-main: #1d1d1f;
+            --text-sub: #6e6e73;
+            --accent-color: #0066cc;
+            --border-color: #e5e5ea;
+            --tag-bg: #f0f2f5;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* 顶部品牌展示区 */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 64px 20px 48px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        header .slogan {
+            font-size: 1.15rem;
+            color: var(--text-sub);
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        header .badges {
+            display: inline-flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        header .badge {
+            background: var(--tag-bg);
+            color: var(--text-main);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* 主体容器 */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 48px 20px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* 作品卡片网格布局 */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 28px;
+        }
+
+        /* 单个作品卡片 */
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+            border-color: #d1d1d6;
+        }
+
+        /* 卡片封面图区域 */
+        .card-cover {
+            width: 100%;
+            height: 210px;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #868e96;
+            font-size: 0.9rem;
+            overflow: hidden;
+        }
+
+        .card-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 卡片文字内容区 */
+        .card-body {
+            padding: 22px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .card-desc {
+            font-size: 0.92rem;
+            color: var(--text-sub);
+            margin-bottom: 18px;
+            flex-grow: 1;
+        }
+
+        /* 工艺与结构标签 */
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+
+        .tag {
+            font-size: 0.78rem;
+            background: var(--tag-bg);
+            color: #495057;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        /* 卡片底部跳转提示 */
+        .card-footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 14px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* 页脚 */
+        footer {
+            text-align: center;
+            padding: 36px 20px;
+            color: var(--text-sub);
+            font-size: 0.88rem;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--card-bg);
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+        }
+    </style>
 </head>
 <body>
-    <h1>澄域工创</h1>
-    <p>精工构物，智造新玩</p >
-    <p>玩具结构｜产品研发｜设计作品集</p >
-    <br>
-    <p>页面持续建设中...</p >
+
+    <!-- 顶部品牌与定位 -->
+    <header>
+        <h1>澄域工创</h1>
+        <p class="slogan">精工构物，智造新玩</p>
+        <div class="badges">
+            <span class="badge">玩具结构设计</span>
+            <span class="badge">机构运动研发</span>
+            <span class="badge">DFM 量产优化</span>
+            <span class="badge">手板与原型打样</span>
+        </div>
+    </header>
+
+    <!-- 作品集展示区 -->
+    <main class="container">
+        <h2 class="section-title">📐 精选结构设计作品 (Featured Works)</h2>
+
+        <div class="projects-grid">
+
+            <!-- 作品卡片 1（示例：请替换 href 链接与图片） -->
+            <a href="https://github.com/Tsai-pong" target="_blank" class="project-card">
+                <div class="card-cover">
+                    <!-- 有图片后，把下面这行注释取消，填入图片路径，并删掉占位文字 -->
+                    <!-- <img src="images/project1.jpg" alt="作品1封面"> -->
+                    <span>[ 放置作品 1 渲染图或结构爆炸图 ]</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">高可动模块关节结构系统</h3>
+                    <p class="card-desc">针对人偶及机甲类玩具开发的无金属销轴球形关节系统，兼顾高阻尼保持力与注塑脱模工艺。</p>
+                    <div class="card-tags">
+                        <span class="tag">SolidWorks</span>
+                        <span class="tag">ABS / POM</span>
+                        <span class="tag">公差配合</span>
+                    </div>
+                    <div class="card-footer">
+                        <span>查看独立作品仓库 (GitHub)</span>
+                        <span>→</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 作品卡片 2（示例） -->
+            <a href="https://github.com/Tsai-pong" target="_blank" class="project-card">
+                <div class="card-cover">
+                    <span>[ 放置作品 2 渲染图或动态演示 ]</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">纯机械发条步行联动机构</h3>
+                    <p class="card-desc">在紧凑外壳空间内集成多级减速齿轮组与曲柄摇杆机构，实现稳定仿生步态与长续航输出。</p>
+                    <div class="card-tags">
+                        <span class="tag">齿轮传动</span>
+                        <span class="tag">运动仿真</span>
+                        <span class="tag">3D打印打样</span>
+                    </div>
+                    <div class="card-footer">
+                        <span>查看独立作品仓库 (GitHub)</span>
+                        <span>→</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 作品卡片 3（示例） -->
+            <a href="https://github.com/Tsai-pong" target="_blank" class="project-card">
+                <div class="card-cover">
+                    <span>[ 放置作品 3 渲染图或手板实拍 ]</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">多段式变形与隐藏卡扣结构</h3>
+                    <p class="card-desc">一键触发多连杆展开结构，采用隐藏式弹性卡扣设计，确保把玩手感清脆且通过跌落测试。</p>
+                    <div class="card-tags">
+                        <span class="tag">变形机构</span>
+                        <span class="tag">卡扣设计</span>
+                        <span class="tag">DFM分析</span>
+                    </div>
+                    <div class="card-footer">
+                        <span>查看独立作品仓库 (GitHub)</span>
+                        <span>→</span>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </main>
+
+    <!-- 底部联系信息 -->
+    <footer>
+        <p>© 2026 澄域工创 | 精工构物，智造新玩</p>
+        <p style="margin-top: 6px;">
+            GitHub 主页：<a href="https://github.com/Tsai-pong" target="_blank">github.com/Tsai-pong</a>
+        </p>
+    </footer>
+
 </body>
 </html>
